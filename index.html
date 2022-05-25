@@ -1,13 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Kanban Board</title>
+	<title>Dungeon Daddy Initialization Tracker</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!--<meta http-equiv="X-UA-Compatible" content="IE=edge"> -->
 	<link rel="stylesheet" href="css/main.css">
+
 </head>
+
+<!-- this is where we set up useful parameters
+to ease user navigation 
+hopefully centering most things'll still be easy to navigate
+even after minimizing/maximizing the screen or using the app on
+a phone-->
+<style>
+div.jumbotron {
+	text-align: center;
+}
+
+div.ddList {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+</style>
 <body>
+
+<div class="jumbotron" style="margin-bottom:0">
+	<h1 style="font-family:Tahoma">Dungeon Daddy Initiative Tracker</h1>
+	<p style="color:red">Super cool initiative tracker!!!</p>
+</div>
+
 	<div class="kanban">
 		<!-- <div class="kanban__column">
 			<div class="kanban__column-title">Not Started</div>
@@ -19,5 +49,8 @@
 		</div> -->
 	</div>
 	<script src="js/main.js" type="module"></script>
+
+	<img src="angieGuin.png" alt="angieGuin" width="460" height="345">
+
 </body>
 </html>
