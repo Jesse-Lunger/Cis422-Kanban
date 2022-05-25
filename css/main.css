@@ -3,8 +3,22 @@ too much of a hassle to rename and I hate it
 -EAVI
 */
 
+/* setting up the background color and defaults for images
+
+if image functionality is something we wanna pursue later in the project,
+a handy preset has already been established*/
+body{
+	background-color: rgb(139,0,0,0.5);
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* .kanban dictates how the list is presented, such as in
-an accordion style list or a "flex" list where objects fit within a
+an accordion style "block" list or a "flex" list where objects fit within a
 certain margin (which we set to automatically fit within the user's  display
 screen size), and colors*/
 .kanban {
@@ -12,7 +26,6 @@ screen size), and colors*/
 	margin-left: auto;
 	margin-right: auto;
 	padding: 30px;
-	width: 750px;
 	background: darkgrey;
 	border-radius: 5px;
 }
@@ -39,6 +52,7 @@ the most important are alignment, font size, and color*/
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 30px;
+	font-family: Helvetica;
 	color: firebrick;
 	user-select: none;
 }
@@ -73,7 +87,7 @@ NOTE: where users drop items in*/
 .kanban__add-item {
 	width: 100%;
 	padding: 10px 0;
-	font-family: Tacoma;
+	font-family: Tahoma;
 	font-size: 16px;
 	color: white;
 	background: rgba(0, 0, 0, 0.1);
