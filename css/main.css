@@ -1,38 +1,50 @@
-/*can't cahnge all instances of "kanban" to something more appropriate
+/*can't change all instances of "kanban" to something more appropriate
 too much of a hassle to rename and I hate it
 -EAVI
 */
 
+/* .kanban dictates how the list is presented, such as in
+an accordion style list or a "flex" list where objects fit within a
+certain margin (which we set to automatically fit within the user's  display
+screen size), and colors*/
 .kanban {
 	display: flex;
 	margin-left: auto;
 	margin-right: auto;
 	padding: 30px;
 	width: 750px;
-	background: #009578;
+	background: darkgrey;
 	border-radius: 5px;
 }
 
+/* this sets the default font for anything inheriting .kanban*/
 .kanban * {
 	font-family: Tahoma;
 }
 
+/* determines the space style between columns in list,
+which doesn't act like display:flex at all*/
 .kanban__column {
 	flex: 1;
 }
 
+/* dictates the length of the "+add" buttons*/
 .kanban__column:not(:last-child) {
 	margin-right: 30px;
 }
 
+/* dictates properties for the title of each column;
+the most important are alignment, font size, and color*/
 .kanban__column-title {
 	margin-bottom: 20px;
 	text-align: center;
 	font-size: 30px;
-	color: white;
+	color: firebrick;
 	user-select: none;
 }
 
+/* this dictates what the objects users input w/ "+add"
+will look like; trying to emulate white textboxes*/
 .kanban__item-input {
 	padding: 10px 15px;
 	box-sizing: border-box;
@@ -41,19 +53,27 @@ too much of a hassle to rename and I hate it
 	cursor: pointer;
 }
 
+/* this sets the width for the area where a user can "drop" items
+from one column to another
+NOTE: THIS ISN'T ACTUALLY WHERE USERS DROP IN ITEMS*/
 .kanban__dropzone {
 	height: 10px;
 	transition: background 0.15s, height 0.15s;
 }
 
+/* this sets the width for the area where, when a user drags over a column
+above the "+add" button, an item can actually be "dropped"
+NOTE: where users drop items in*/
 .kanban__dropzone--active {
 	height: 20px;
 	background: rgba(0, 0, 0, 0.25);
 }
 
+/* determines how the "+add" button looks*/
 .kanban__add-item {
 	width: 100%;
 	padding: 10px 0;
+	font-family: Tacoma;
 	font-size: 16px;
 	color: white;
 	background: rgba(0, 0, 0, 0.1);
