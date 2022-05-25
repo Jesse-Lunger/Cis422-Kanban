@@ -1,5 +1,12 @@
+/*can't cahnge all instances of "kanban" to something more appropriate
+too much of a hassle to rename and I hate it
+-EAVI
+*/
+
 .kanban {
 	display: flex;
+	margin-left: auto;
+	margin-right: auto;
 	padding: 30px;
 	width: 750px;
 	background: #009578;
@@ -7,7 +14,7 @@
 }
 
 .kanban * {
-	font-family: sans-serif;
+	font-family: Tahoma;
 }
 
 .kanban__column {
@@ -20,6 +27,7 @@
 
 .kanban__column-title {
 	margin-bottom: 20px;
+	text-align: center;
 	font-size: 30px;
 	color: white;
 	user-select: none;
