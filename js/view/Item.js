@@ -39,7 +39,7 @@ export default class Item {
 				KanbanAPI.deleteItem(id);
 
 				this.elements.input.removeEventListener("blur", onBlur);
-				//this.elements.root.parentElement.removeChild(this.elements.root);
+				this.elements.root.parentElement.removeChild(this.elements.root);
 			}
 		});
 
