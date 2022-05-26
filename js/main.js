@@ -20,7 +20,7 @@ new Kanban(
 
 
 // [{"id":1,
-// 	"items":[{"id":15763,"content":"dfasdf"},
+// 	"items":[{"id":15763,"content":"dfasdf", "turn order": 1},
 // 			{"id":83655,"content":"asdfasdf"},
 // 			{"id":41158,"content":""}]},
 // {"id":2,

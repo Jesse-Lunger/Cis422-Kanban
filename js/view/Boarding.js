@@ -26,19 +26,17 @@ export default class Boarding {
 			this.renderItem(newItem);
 		});
 		this.elements.clearItems.addEventListener("click", () =>{
-			KanbanAPI.getItems(1).forEach(item1 => {
-				// this.renderItem(item);
-				// console.log(item.id);
-				//KanbanAPI.deleteItem(item1.id);
-				console.log(this.elements.root.dataset);
+			//console.log(this.elements.items.parentElement);
+			
+				KanbanAPI.getItems(1).forEach(item => {
+					this.elements.items.removeChild(this.elements.items.firstElementChild);
+					KanbanAPI.deleteItem(item.id);
+					console.log(top);
 				
-				//item.deleteSelf(item.id);
-				//item.elements.input.removeEventListener("blur", onBlur);
-				//item.elements.root.parentElement.removeChild(item.elements.root);
-
-			})
-
-
+				})
+				if (this.elements.items.hasChildNodes()){
+				this.elements.items.removeChild(this.elements.items.firstElementChild);
+			}
 		})
 
 
