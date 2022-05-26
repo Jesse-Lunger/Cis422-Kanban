@@ -26,16 +26,16 @@ export default class Boarding {
 			this.renderItem(newItem);
 		});
 		this.elements.clearItems.addEventListener("click", () =>{
-			//console.log(this.elements.items.parentElement);
-			
-				KanbanAPI.getItems(1).forEach(item => {
-					this.elements.items.removeChild(this.elements.items.firstElementChild);
-					KanbanAPI.deleteItem(item.id);
-					console.log(top);
 				
+				//this.elements.items.firstElementChild;
+
+				KanbanAPI.getItems(1).forEach(item => {
+					this.elements.items.removeChild(this.elements.items.lastElementChild);
+					//this.elements.items.input.removeEventLister("blur", onBlur);
+					KanbanAPI.deleteItem(item.id);
 				})
 				if (this.elements.items.hasChildNodes()){
-				this.elements.items.removeChild(this.elements.items.firstElementChild);
+				//this.elements.items.removeChild(this.elements.items.firstElementChild);
 			}
 		})
 
@@ -80,7 +80,6 @@ export default class Boarding {
 				<div class="kanban__column-title"></div>
 				<div class="kanban__column-items"></div>
 				<button class="kanban__add-item" type="button">+ Add</button>
- 
 				<button class="kanban__clear-items" type="button">clear</button>
 			</div>
 		`).children[0];

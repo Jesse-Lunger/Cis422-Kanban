@@ -8,7 +8,7 @@ export default class Item {
 		this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
-		this.elements.editPage = this.elements.root.querySelector(".kanban__edit-input");
+		//this.elements.editPage = this.elements.root.querySelector(".kanban__edit-input");
 
 		this.elements.root.dataset.id = id;
 		this.elements.input.textContent = content;
@@ -35,14 +35,13 @@ export default class Item {
 
 			if (check) {
 				KanbanAPI.deleteItem(id);
-
 				this.elements.input.removeEventListener("blur", onBlur);
 				this.elements.root.parentElement.removeChild(this.elements.root);
 			}
 		});
-		this.elements.root.addEventListener("click", () => {
-			console.log("my man");
-		});
+		// this.elements.root.addEventListener("click", () => {
+		// 	console.log("my man");
+		// });
 
 
 
@@ -65,7 +64,6 @@ export default class Item {
 			<div class="kanban__item" draggable="true">
 				<div class="kanban__item-input" contenteditable></div>
 				<button class="kanban__edit-input" type="button">edit</button>
-
 			</div>
 		`).children[0];
 	}
