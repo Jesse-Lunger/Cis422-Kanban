@@ -8,6 +8,7 @@ export default class Item {
 		this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
+		this.elements.stats = this.elements.root.querySelector(".kanban__edit-input");
 
 		this.elements.root.dataset.id = id;
 		this.elements.input.textContent = content;
@@ -39,6 +40,11 @@ export default class Item {
 				this.elements.root.parentElement.removeChild(this.elements.root);
 			}
 		});
+		this.elements.root.addEventListener("click", () => {
+			console.log("my man");
+		});
+
+
 
 		this.elements.root.addEventListener("dragstart", e => {
 			e.dataTransfer.setData("text/plain", id);
@@ -57,6 +63,7 @@ export default class Item {
 		return range.createContextualFragment(`
 			<div class="kanban__item" draggable="true">
 				<div class="kanban__item-input" contenteditable></div>
+				<button class="kanban__edit-input" type="button">edit</button>
 			</div>
 		`).children[0];
 	}
