@@ -1,8 +1,6 @@
 import DropZone from "./DropZone.js";
 import KanbanAPI from "../api/KanbanAPI.js";
 
-//hopefully colNum'll help us achieve a functionality we want
-//the idea is that only items with a colNum of 1'll have the option of being deleted
 export default class Item {
 	constructor(id, content) {
 		const bottomDropZone = DropZone.createDropZone();
@@ -11,7 +9,6 @@ export default class Item {
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
 
-		//id is the randomly generated id from KanbanAPI, not the given one in Kanban
 		this.elements.root.dataset.id = id;
 		this.elements.input.textContent = content;
 		this.content = content;
@@ -39,7 +36,7 @@ export default class Item {
 				KanbanAPI.deleteItem(id);
 
 				this.elements.input.removeEventListener("blur", onBlur);
-				//this.elements.root.parentElement.removeChild(this.elements.root);
+				this.elements.root.parentElement.removeChild(this.elements.root);
 			}
 		});
 
