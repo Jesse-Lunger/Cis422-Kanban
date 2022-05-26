@@ -2,32 +2,43 @@ import DropZone from "./DropZone.js";
 import KanbanAPI from "../api/KanbanAPI.js";
 
 export default class Item {
-	constructor(id, content) {
+	constructor(id, content, init=0) {
 		const bottomDropZone = DropZone.createDropZone();
 
 		this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
-		//this.elements.editPage = this.elements.root.querySelector(".kanban__edit-input");
+		this.elements.init = this.elements.root.querySelector(".kanban__init-input");
 
 		this.elements.root.dataset.id = id;
+
 		this.elements.input.textContent = content;
+		this.elements.init.textContent = init;
+
 		this.content = content;
+		this.init = init;
+
 		this.elements.root.appendChild(bottomDropZone);
 
 		const onBlur = () => {
 			const newContent = this.elements.input.textContent.trim();
+			const newInit = this.elements.init.textContent.trim(); //modified
 
-			if (newContent == this.content) {
+			if ((newContent == this.content) | (newInit == this.init)) { 
 				return;
 			}
 
 			this.content = newContent;
+			this.init = newInit;
 
 			KanbanAPI.updateItem(id, {
-				content: this.content
+				content: this.content,
+				init: this.init
 			});
 		};
+
+
+
 
 		this.elements.input.addEventListener("blur", onBlur);
 		this.elements.root.addEventListener("dblclick", () => {
@@ -59,12 +70,12 @@ export default class Item {
 
 		range.selectNode(document.body);
 
-		//https://www.w3schools.com/howto/howto_js_popup.asp create pop up tomorrow
 		return range.createContextualFragment(`
 			<div class="kanban__item" draggable="true">
 				<div class="kanban__item-input" contenteditable></div>
-				<button class="kanban__edit-input" type="button">edit</button>
+				<div class="kanban__init-input" contenteditable></div>
 			</div>
+			
 		`).children[0];
 	}
 
@@ -72,11 +83,11 @@ export default class Item {
 	// 	this.deleting();
 	// }
 
-	*deleting(){
-		KanbanAPI.deleteItem(this.elements.root.dataset.id);
-		this.elements.input.removeEventListener("blur", onBlur);
-		this.elements.root.parentElement.removeChild(this.elements.root);
-	}
+	// *deleting(){
+	// 	KanbanAPI.deleteItem(this.elements.root.dataset.id);
+	// 	this.elements.input.removeEventListener("blur", onBlur);
+	// 	this.elements.root.parentElement.removeChild(this.elements.root);
+	// }
 }
 
 // const j = Item(1, "erer");

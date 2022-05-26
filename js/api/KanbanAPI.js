@@ -9,12 +9,13 @@ export default class KanbanAPI {
 		return column.items;
 	}
 
-	static insertItem(columnId, content) {
+	static insertItem(columnId, content, init =0) {
 		const data = read();
 		const column = data.find(column => column.id == columnId);
 		const item = {
 			id: Math.floor(Math.random() * 100000),
-			content
+			content,
+			init
 		};
 
 		if (!column) {
@@ -44,6 +45,7 @@ export default class KanbanAPI {
 		}
 
 		item.content = newProps.content === undefined ? item.content : newProps.content;
+		item.init = newProps.init === undefined ? item.init : newProps.init;
 
 		// Update column and position
 		if (
@@ -79,24 +81,7 @@ export default class KanbanAPI {
 
 		save(data);
 	}
-	static clearItems(){
-		const data = [
-			{
-				id: 1,
-				items: []
-			},
-			{
-				id: 2,
-				items: []
-			},
-			{
-				id: 3,
-				items: []
-			},
-		];
-	save(data);
 
-	}
 }
 
 function read() {
