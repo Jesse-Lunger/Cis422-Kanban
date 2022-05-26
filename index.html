@@ -13,44 +13,32 @@
 to ease user navigation 
 hopefully centering most things'll still be easy to navigate
 even after minimizing/maximizing the screen or using the app on
-a phone-->
+a phone
+
+-->
 <style>
 div.jumbotron {
 	text-align: center;
-}
-
-div.ddList {
-	margin-left: auto;
-	margin-right: auto;
-}
-
-img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	font-family: Tahoma;
+	color: tomato;
+	background-color: gainsboro;
 }
 
 </style>
 <body>
 
+	<!-- this is the title of the webpage-->
 <div class="jumbotron" style="margin-bottom:0">
-	<h1 style="font-family:Tahoma">Dungeon Daddy Initiative Tracker</h1>
-	<p style="color:red">Super cool initiative tracker!!!</p>
+	<h1>Dungeon Daddy Initiative Tracker</h1>
+	<p style="background-color: blanchedalmond">Super cool initiative tracker!!!</p>
 </div>
 
-	<div class="kanban">
-		<!-- <div class="kanban__column">
-			<div class="kanban__column-title">Not Started</div>
-			<div class="kanban__items">
-				<div contenteditable class="kanban__item-input">Wash the dishes</div>
-				<div class="kanban__dropzone"></div>
-			</div>
-			<button class="kanban__add-item" type="button">+ Add</button>
-		</div> -->
-	</div>
+	<!-- most of how the init list is displayed can be found in main.css-->
+	<div class="kanban"></div>
 	<script src="js/main.js" type="module"></script>
 
-	<img src="angieGuin.png" alt="angieGuin" width="460" height="345">
+	<!-- no longer relevant, just testing image capacities
+	<img src="angieGuin.png" alt="angieGuin" width="460" height="345"> -->
 
 </body>
 </html>

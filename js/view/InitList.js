@@ -44,6 +44,7 @@ export default class InitList {
 
 	renderItem(data) {
 		const item = new Item(data.id, data.content);
+		//console.log(colNum)
 
 		this.elements.items.appendChild(item.elements.root);
 	}

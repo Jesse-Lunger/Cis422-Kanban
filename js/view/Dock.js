@@ -16,12 +16,15 @@ export default class Dock {
 		this.elements.title.textContent = title;
 		this.elements.items.appendChild(topDropZone);
 
+
 		// Allows user to add items to list
 		this.elements.addItem.addEventListener("click", () => {
 			const newItem = KanbanAPI.insertItem(id, "");
 
 			this.renderItem(newItem);
 		});
+		
+		
 		// shows saved data from json
 		KanbanAPI.getItems(id).forEach(item => {
 			this.renderItem(item);
