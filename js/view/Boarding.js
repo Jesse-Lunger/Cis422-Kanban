@@ -11,6 +11,8 @@ export default class Boarding {
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.addItem = this.elements.root.querySelector(".kanban__add-item");
+		this.elements.board = this.elements.root.querySelector(".kanban__board");
+
 		this.elements.clearItems = this.elements.root.querySelector(".kanban__clear-items");
 
 
@@ -28,22 +30,20 @@ export default class Boarding {
 		this.elements.clearItems.addEventListener("click", () =>{
 				
 				//this.elements.items.firstElementChild;
+			this.deleteColumn(id);
+		})
 
-				KanbanAPI.getItems(1).forEach(item => {
-					this.elements.items.removeChild(this.elements.items.lastElementChild);
-					//this.elements.items.input.removeEventLister("blur", onBlur);
-					KanbanAPI.deleteItem(item.id);
-				})
-				if (this.elements.items.hasChildNodes()){
-				//this.elements.items.removeChild(this.elements.items.firstElementChild);
-			}
+		this.elements.board.addEventListener("click", () =>{
+				
+			this.pushToInitiative(3);
 		})
 
 
-		// shows saved data from json
-		KanbanAPI.getItems(id).forEach(item => {
-			this.renderItem(item);
-		});
+
+		// renders saved data from json
+		this.renderColumn(id);
+
+		//this.pushToInitiative(3);
 	}
 
 	static createRoot() {
@@ -80,14 +80,43 @@ export default class Boarding {
 				<div class="kanban__column-title"></div>
 				<div class="kanban__column-items"></div>
 				<button class="kanban__add-item" type="button">+ Add</button>
+				<button class="kanban__board" type="button">board</button>
 				<button class="kanban__clear-items" type="button">clear</button>
 			</div>
 		`).children[0];
 	}
 
+
+
+	pushToInitiative(initColId){
+		KanbanAPI.getItems(2).forEach(item => {
+			KanbanAPI.insertItem(initColId, item.id, item.init);
+		});
+		//this.renderColumn(initColId);
+		this.deleteColumn(2)	
+	}
+
 	renderItem(data) {
-		const item = new Item(data.id, data.content);
+		const item = new Item(data.id, data.content, data.init);
 
 		this.elements.items.appendChild(item.elements.root);
 	}
+
+	renderColumn(id){
+		KanbanAPI.getItems(id).forEach(item => {
+			this.renderItem(item);
+		});
+	}
+
+	deleteColumn(id){
+		KanbanAPI.getItems(id).forEach(item => {
+			this.elements.items.removeChild(this.elements.items.lastElementChild);
+			//this.elements.items.input.removeEventLister("blur", onBlur);
+			KanbanAPI.deleteItem(item.id);
+		})
+		if (this.elements.items.hasChildNodes()){
+		//this.elements.items.removeChild(this.elements.items.firstElementChild);
+	}
+}
+
 }

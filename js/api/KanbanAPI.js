@@ -44,6 +44,7 @@ export default class KanbanAPI {
 			throw new Error("Item not found.");
 		}
 
+		//maintain content and init value when transferred.
 		item.content = newProps.content === undefined ? item.content : newProps.content;
 		item.init = newProps.init === undefined ? item.init : newProps.init;
 

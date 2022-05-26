@@ -24,23 +24,27 @@ export default class Item {
 			const newContent = this.elements.input.textContent.trim();
 			const newInit = this.elements.init.textContent.trim(); //modified
 
-			if ((newContent == this.content) | (newInit == this.init)) { 
+			
+			if ((newContent == this.content) && (newInit == this.init)) {
 				return;
 			}
 
 			this.content = newContent;
-			this.init = newInit;
+			this.init = newInit; //collects init
 
 			KanbanAPI.updateItem(id, {
 				content: this.content,
-				init: this.init
+				init: this.init //updates new init when dragged
 			});
 		};
 
 
 
 
-		this.elements.input.addEventListener("blur", onBlur);
+		this.elements.input.addEventListener("blur", onBlur); //updates if item.contents on changes
+		this.elements.init.addEventListener("blur", onBlur); //updates if item.init changes
+
+	
 		this.elements.root.addEventListener("dblclick", () => {
 			const check = confirm("Are you sure you want to delete this item?");
 
@@ -50,10 +54,6 @@ export default class Item {
 				this.elements.root.parentElement.removeChild(this.elements.root);
 			}
 		});
-		// this.elements.root.addEventListener("click", () => {
-		// 	console.log("my man");
-		// });
-
 
 
 		this.elements.root.addEventListener("dragstart", e => {

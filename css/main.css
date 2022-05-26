@@ -107,10 +107,21 @@ NOTE: where users drop items in*/
 	cursor: pointer;
 }
 
+.kanban__board {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: rgb(0, 7, 1);
+	background: rgb(43, 209, 10);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
 .kanban__init-input {
 	padding: 20px 15px;
 	box-sizing: border-box;
-	background: rgb(47, 190, 11);
+	background: rgb(11, 38, 190);
 	border-radius: 5px;
 	cursor: pointer;
 }
