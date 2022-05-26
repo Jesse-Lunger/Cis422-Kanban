@@ -11,6 +11,9 @@ export default class Boarding {
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.addItem = this.elements.root.querySelector(".kanban__add-item");
+		this.elements.clearItems = this.elements.root.querySelector(".kanban__clear-items");
+
+
 
 		this.elements.root.dataset.id = id;
 		this.elements.title.textContent = title;
@@ -22,6 +25,23 @@ export default class Boarding {
 
 			this.renderItem(newItem);
 		});
+		this.elements.clearItems.addEventListener("click", () =>{
+			KanbanAPI.getItems(1).forEach(item1 => {
+				// this.renderItem(item);
+				// console.log(item.id);
+				//KanbanAPI.deleteItem(item1.id);
+				console.log(this.elements.root.dataset);
+				
+				//item.deleteSelf(item.id);
+				//item.elements.input.removeEventListener("blur", onBlur);
+				//item.elements.root.parentElement.removeChild(item.elements.root);
+
+			})
+
+
+		})
+
+
 		// shows saved data from json
 		KanbanAPI.getItems(id).forEach(item => {
 			this.renderItem(item);
@@ -38,6 +58,7 @@ export default class Boarding {
 				<div class="kanban__column-title"></div>
 				<div class="kanban__column-items"></div>
 				<button class="kanban__add-item" type="button">+ Add</button>
+				<button class="kanban__clear-items" type="button">clear</button>
 			</div>
 		`).children[0];
 	}

@@ -36,7 +36,7 @@ export default class Item {
 				KanbanAPI.deleteItem(id);
 
 				this.elements.input.removeEventListener("blur", onBlur);
-				this.elements.root.parentElement.removeChild(this.elements.root);
+				//this.elements.root.parentElement.removeChild(this.elements.root);
 			}
 		});
 
@@ -60,4 +60,17 @@ export default class Item {
 			</div>
 		`).children[0];
 	}
+
+	// get deleteSelf(){
+	// 	this.deleting();
+	// }
+
+	*deleting(){
+		KanbanAPI.deleteItem(this.elements.root.dataset.id);
+		this.elements.input.removeEventListener("blur", onBlur);
+		this.elements.root.parentElement.removeChild(this.elements.root);
+	}
 }
+
+// const j = Item(1, "erer");
+// j.deleting

@@ -61,3 +61,14 @@ too much of a hassle to rename and I hate it
 	border-radius: 5px;
 	cursor: pointer;
 }
+
+.kanban__clear-items {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: rgb(255, 0, 47);
+	background: rgba(0, 0, 0, 0.1);
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}

@@ -79,6 +79,24 @@ export default class KanbanAPI {
 
 		save(data);
 	}
+	static clearItems(){
+		const data = [
+			{
+				id: 1,
+				items: []
+			},
+			{
+				id: 2,
+				items: []
+			},
+			{
+				id: 3,
+				items: []
+			},
+		];
+	save(data);
+
+	}
 }
 
 function read() {
