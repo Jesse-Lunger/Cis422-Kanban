@@ -1,5 +1,70 @@
 <!-- THIS IS SUPPOSED TO BE THE MAIN HOMESCREEN PAGE-->
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Join Session | Dungeon Daddy</title>
+        <link rel="stylesheet" href="css/index.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
 
+    <body>
+        <style>
+            div.jumbotron {
+                text-align: center;
+                font-family: Tahoma;
+                color: tomato;
+                background-color: gainsboro;
+            }
+            
+        </style>
+            
+            <!-- this is the title of the webpage-->
+            <div class="jumbotron" style="margin-bottom:0">
+                <h1>Dungeon Daddy Initiative Tracker</h1>
+                <p style="background-color: blanchedalmond">Super cool initiative tracker!!!</p>
+            </div>
+            <h1 id="title">Join a Session</h1>
+            <!-- html can collect user input by using form
+            what we'll do here is collect the user's name, initiative?,
+            and session id
+
+            the user's name and initiative'll be passed off to the backend for
+            processing
+            the session id'll be passed off to the backend to verify a valid session
+
+            I think the backend peoples'll have to deal with the form's action because from
+            what I learned, the form has an action where it'll send the information form
+            collects
+            As such, I leave it up to Braden & Isabelle to send the information collected here
+            to wherever they need it to go
+            -->
+            <form>
+                <!-- This first form field'll collect the player's name
+                It'll autofocus on this text field to make it apparent to the user
+                where they're typing
+                -->
+                <div class="form-field">
+                    <label id="label">Player Name</label>
+                    <input id="form" type="text" name="name" autofocus/>
+                </div>
+                <div class="form-field">
+                    <label id="label">Player Initiative</label>
+                    <input id="form" type="number" name="init"/>
+                </div>
+                <div class="form-field">
+                    <label id="label">Session PIN</label>
+                    <input id="form" type="number" name="pin"/>
+                </div>
+                <div class="form-field">
+                    <button id="button" style="background-color: lightgreen; font-weight: bold;">Join Session</button>
+                </div>
+
+                <!-- Here's a button to create a session...-->
+                <div class="form-field">
+                    <button id="button" style="background-color: plum; font-weight: bold;">Create a Session</button>
+                </div>
+
+            </form>
+
+    </body>
 </html>
