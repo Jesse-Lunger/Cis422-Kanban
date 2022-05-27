@@ -2,15 +2,16 @@ import KanbanAPI from "../api/KanbanAPI.js";
 import DropZone from "./DropZone.js";
 import Item from "./Item.js";
 
-export default class initList {
+export default class InitList {
 	constructor(id, title) {
 		const topDropZone = DropZone.createDropZone();
 
 		this.elements = {};
-		this.elements.root = initList.createRoot();
+		this.elements.root = InitList.createRoot();
 		this.elements.title = this.elements.root.querySelector(".kanban__column-title");
 		this.elements.items = this.elements.root.querySelector(".kanban__column-items");
 		this.elements.addItem = this.elements.root.querySelector(".kanban__add-item");
+
 		this.elements.clearItems = this.elements.root.querySelector(".kanban__clear-items");
 
 
@@ -25,25 +26,16 @@ export default class initList {
 
 			this.renderItem(newItem);
 		});
-		this.elements.clearItems.addEventListener("click", () =>{
-				
+		this.elements.clearItems.addEventListener("click", () =>{			
 				//this.elements.items.firstElementChild;
-
-				KanbanAPI.getItems(3).forEach(item => {
-					this.elements.items.removeChild(this.elements.items.lastElementChild);
-					//this.elements.items.input.removeEventLister("blur", onBlur);
-					KanbanAPI.deleteItem(item.id);
-				})
-				if (this.elements.items.hasChildNodes()){
-				//this.elements.items.removeChild(this.elements.items.firstElementChild);
-			}
+			this.deleteColumn(id);
 		})
 
 
-		// shows saved data from json
-		KanbanAPI.getItems(id).forEach(item => {
-			this.renderItem(item);
-		});
+		// renders saved data from json
+		this.renderColumn(id);
+
+		//this.pushToInitiative(3);
 	}
 
 	static createRoot() {
@@ -85,9 +77,39 @@ export default class initList {
 		`).children[0];
 	}
 
+
+
+	pushToInitiative(initColId){
+		// KanbanAPI.getItems(this.elements.root.dataset.id).forEach(item => {
+		// 	KanbanAPI.insertItem(initColId, item.id, item.init);
+		// });
+		// KanbanAPI.getItems(initColId).forEach(item => {
+		// 	//item.renderItem;
+		// });
+		// this.deleteColumn(2)	
+	}
+
 	renderItem(data) {
-		const item = new Item(data.id, data.content);
+		const item = new Item(data.id, data.content, data.init);
 
 		this.elements.items.appendChild(item.elements.root);
 	}
+
+	renderColumn(id){
+		KanbanAPI.getItems(id).forEach(item => {
+			this.renderItem(item);
+		});
+	}
+
+	deleteColumn(id){
+		KanbanAPI.getItems(id).forEach(item => {
+			this.elements.items.removeChild(this.elements.items.lastElementChild);
+			//this.elements.items.input.removeEventLister("blur", onBlur);
+			KanbanAPI.deleteItem(item.id);
+		})
+		if (this.elements.items.hasChildNodes()){
+		//this.elements.items.removeChild(this.elements.items.firstElementChild);
+	}
+}
+
 }

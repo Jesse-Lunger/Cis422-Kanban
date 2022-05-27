@@ -10,8 +10,9 @@ export default class Kanban {
 		//these consts are giving their respective .js files
 		//the id and title required 
 		const dockview = new Dock(1, "Dock");
-		const boardingView = new Boarding(2, "Boarding");
 		const initView = new InitList(3, "InitList");
+		const boardingView = new Boarding(2, "Boarding", initView.elements.items);
+
 
 
 		this.root.appendChild(initView.elements.root);

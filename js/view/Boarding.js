@@ -3,8 +3,11 @@ import DropZone from "./DropZone.js";
 import Item from "./Item.js";
 
 export default class Boarding {
-	constructor(id, title) {
+	constructor(id, title, initRoot) {
 		const topDropZone = DropZone.createDropZone();
+
+		//this.elements.initRoot = initRoot;
+		//console.log(initRoot);
 
 		this.elements = {};
 		this.elements.root = Boarding.createRoot();
@@ -33,12 +36,17 @@ export default class Boarding {
 			this.deleteColumn(id);
 		})
 
+		// This is the boarding method. Moves all items from boarding to initiative list
 		this.elements.board.addEventListener("click", () =>{
-				
-			this.pushToInitiative(3);
+			KanbanAPI.getItems(id).forEach(item => {
+				KanbanAPI.insertItem(3, item.content, item.init);
+				const itemdup = new Item(3, item.content, item.init);
+				initRoot.appendChild(itemdup.elements.root);
+				this.deleteColumn(id);
+			});
 		})
 
-
+		
 
 		// renders saved data from json
 		this.renderColumn(id);
@@ -87,21 +95,13 @@ export default class Boarding {
 	}
 
 
-
-	pushToInitiative(initColId){
-		KanbanAPI.getItems(2).forEach(item => {
-			KanbanAPI.insertItem(initColId, item.id, item.init);
-		});
-		//this.renderColumn(initColId);
-		this.deleteColumn(2)	
-	}
-
 	renderItem(data) {
 		const item = new Item(data.id, data.content, data.init);
 
 		this.elements.items.appendChild(item.elements.root);
 	}
 
+	// class specific, cannot be used on the another of the columns
 	renderColumn(id){
 		KanbanAPI.getItems(id).forEach(item => {
 			this.renderItem(item);
