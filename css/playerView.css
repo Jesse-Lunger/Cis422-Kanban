@@ -1,0 +1,85 @@
+/* style sheet for the player's main view page*/
+
+body{
+	text-align: center;
+	background-color: indianred;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* .kanban dictates how the list is presented, such as in
+an accordion style "block" list or a "flex" list where objects fit within a
+certain margin (which we set to automatically fit within the user's  display
+screen size), and colors*/
+.kanban {
+	display: flex;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 30px;
+	background: darkgrey;
+	border-radius: 5px;
+}
+
+/* this sets the default font for anything inheriting .kanban*/
+.kanban * {
+	font-family: Tahoma;
+}
+
+/* determines the space style between columns in list,
+which doesn't act like display:flex at all*/
+.kanban__column {
+	flex: 1;
+}
+
+/* dictates the length of the "+add" buttons*/
+.kanban__column:not(:last-child) {
+	margin-right: 30px;
+}
+
+/* dictates properties for the title of each column;
+the most important are alignment, font size, and color*/
+.kanban__column-title {
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 30px;
+	font-family: Helvetica;
+	color: firebrick;
+	user-select: none;
+}
+
+/* this dictates what the objects users input w/ "+add"
+will look like; trying to emulate white textboxes*/
+.kanban__item-input {
+	padding: 10px 15px;
+	box-sizing: border-box;
+	background: white;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+/* this sets the width for the area where a user can "drop" items
+from one column to another
+NOTE: THIS ISN'T ACTUALLY WHERE USERS DROP IN ITEMS*/
+.kanban__dropzone {
+	height: 10px;
+	transition: background 0.15s, height 0.15s;
+}
+
+/* NOTE: the above lines 27 -> 70 can also be found in
+main.css
+
+The reason why these items were copied was because I thought they'd be useful for displaying
+what the backend does with the inputs we gather here on the frontend
+
+I imagine the backend will do their magic, then return what we need to display to the players using this page
+I haven't made any of the corresponding js code since I thought it was up to the backenders to implement
+what they need
+
+I expect the backenders to contact either Jesse or I if they need us to make tweaks to our code
+
+-EAVI
+*/

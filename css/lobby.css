@@ -1,3 +1,65 @@
+/* style sheet for the player's waiting lobby
+Pretty bare bonz; not much occurs here
+
+I'd love to try and implement a cool loading animation or circle of death
+but we're pressed for time
+-EAVI
+*/
+
+#title1{
+	text-align: center;
+	color:aliceblue;
+	font-family: Tahoma;
+}
+
+/* body is commented out since @keyframes should do something cool
 body{
-	background-color: rgb(139,0,0,0.5);
+	text-align: center;
+	background-color: indianred;
+}
+*/
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* yoooooo I think I figured out this cool html trick!
+
+This should make the screen go all rainbow-y
+-EAVI
+
+baColor are the colors the background should cycle through
+spin is how I learned how to make the colors change
+*/
+@keyframes baColor {
+	0% {
+		background-color: darkred;
+	}
+
+	20% {
+		background-color: mediumorchid;
+	}
+
+	40% {
+		background-color: royalblue;
+	}
+
+	60% {
+		background-color: forestgreen;
+	}
+
+	80% {
+		background-color: goldenrod;
+	}
+
+	100% {
+		background-color: darkorange;
+	}
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg); }
 }

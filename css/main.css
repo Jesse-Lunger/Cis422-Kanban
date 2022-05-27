@@ -8,7 +8,7 @@ too much of a hassle to rename and I hate it
 if image functionality is something we wanna pursue later in the project,
 a handy preset has already been established*/
 body{
-	background-color: rgb(139,0,0,0.5);
+	background-color: darkred;
 }
 
 img {
@@ -69,7 +69,7 @@ will look like; trying to emulate white textboxes*/
 
 /* this sets the width for the area where a user can "drop" items
 from one column to another
-NOTE: THIS ISN'T ACTUALLY WHERE USERS DROP IN ITEMS*/
+NOTE: THIS ISN'T ACTUALLY WHERE USERS DROP IN ITEMS -EAVI*/
 .kanban__dropzone {
 	height: 10px;
 	transition: background 0.15s, height 0.15s;

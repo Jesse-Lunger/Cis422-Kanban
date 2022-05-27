@@ -1,0 +1,36 @@
+/* style sheet for the DM's lobby view page*/
+
+body{
+	text-align: center;
+	background-color: indianred;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* title should determine how h1 id=title looks*/
+#title {
+    text-align: center;
+    font-size: 30px;
+    font-family: Tahoma;
+    color: ghostwhite;
+}
+
+/* likewise, start & cancel should determine how the start & cancel buttons look*/
+#start {
+    display: flex;
+    text-align: center;
+    font-size: 20px;
+    font-family: Lucida;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cancel {
+    display: block;
+    text-align: center;
+    font-family: Tahoma;
+}
