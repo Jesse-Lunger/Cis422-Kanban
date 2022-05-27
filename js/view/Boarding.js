@@ -46,8 +46,7 @@ export default class Boarding {
 			});
 		})
 
-		
-
+	
 		// renders saved data from json
 		this.renderColumn(id);
 
