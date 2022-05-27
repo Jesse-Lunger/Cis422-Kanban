@@ -7,17 +7,24 @@ but we're pressed for time
 */
 
 #title1{
+	padding: 10px 15px;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
 	text-align: center;
-	color:aliceblue;
+	color:tomato;
+	background-color: darkgrey;
 	font-family: Tahoma;
+	user-select: none;
 }
 
-/* body is commented out since @keyframes should do something cool
+/* body is using @keyframes to do something cool! */
 body{
 	text-align: center;
-	background-color: indianred;
+	animation: baColor 10s infinite;
+	animation-direction: alternate;
 }
-*/
+
 
 img {
 	display: block;
@@ -25,9 +32,9 @@ img {
 	margin-right: auto;
 }
 
-/* yoooooo I think I figured out this cool html trick!
+/* yoooooo I figured out this cool html trick!
 
-This should make the screen go all rainbow-y
+This should make the screen go all rainbow-y like the kahoot lobby
 -EAVI
 
 baColor are the colors the background should cycle through

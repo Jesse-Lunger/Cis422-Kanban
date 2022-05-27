@@ -83,3 +83,15 @@ I expect the backenders to contact either Jesse or I if they need us to make twe
 
 -EAVI
 */
+
+/* NOTE: I'm having difficulties understanding why the player's still able to add things to the
+lists as if they were a DM
+
+I've tried looking it up and I still don't quite see what the problem is; I've been seeing from a lot of others
+that I just needed to make a user-select: none to stop players from adding stuff, but that doesn't work
+
+I'd rather not make an entirely new kanban just to solve this problem. There must be a way to make it
+so that players can't interact with the lists
+
+-EAVI
+*/

@@ -20,26 +20,37 @@
     Another desired aesthetic is that initList should appear
     as a list of all fighters to one of the margins
 
+    For now, the player sees the same as what the DM sees
+    except that players can't interact with anything
+
     -EAVI
     -->
 
-    <body>
-        <!--This display will ultimately use the kanban
-        columns to display the initList I imagine
-    
-        I can't imagine how the backend'll organize this, but
-        I'll make a framework for them to work with
-    
-        This page acts just like the DM's page with its full functionality
-        except worse
-
-        I'm working on only displaying the initList and making it so that players can't
-        actually interact with anything on screen
-    
-        -EAVI
-        -->
-        <div class="kanban"></div>
-        <script src="../../js/main.js" type="module"></script>
+    <style>
+        div.jumbotron {
+            text-align: center;
+            font-family: Tahoma;
+            color: tomato;
+            background-color: gainsboro;
+        }
+        
+        </style>
+        <body>
+        
+            <!-- this is the title of the webpage-->
+        <div class="jumbotron" style="margin-bottom:0">
+            <h1>Dungeon Daddy Initiative Tracker</h1>
+            <p style="background-color: blanchedalmond">Super cool initiative tracker!!!</p>
+        </div>
+        
+            <!-- most of how the init list is displayed can be found in main.css-->
+            <div class="kanban"></div>
+            <script src="../../js/main.js" type="module"></script>
+        
+            <!-- no longer relevant, just testing image capacities
+            <img src="angieGuin.png" alt="angieGuin" width="460" height="345"> -->
+        
+        </body>
     </body>
 
 </html>
