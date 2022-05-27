@@ -85,6 +85,7 @@ NOTE: where users drop items in*/
 
 /* determines how the "+add" button looks*/
 .kanban__add-item {
+	margin-bottom: 5px;
 	width: 100%;
 	padding: 10px 0;
 	font-family: Tahoma;
@@ -97,11 +98,12 @@ NOTE: where users drop items in*/
 }
 
 .kanban__clear-items {
+	margin-bottom: 5px;
 	width: 100%;
 	padding: 10px 0;
 	font-size: 16px;
-	color: rgb(255, 0, 47);
-	background: rgba(0, 0, 0, 0.1);
+	color: whitesmoke;
+	background: indianred;
 	border: none;
 	border-radius: 5px;
 	cursor: pointer;
