@@ -3,7 +3,7 @@ import DropZone from "./DropZone.js";
 import Item from "./Item.js";
 
 export default class Boarding {
-	constructor(id, title, initRoot) {
+	constructor(id, title, initRootItems) {
 		const topDropZone = DropZone.createDropZone();
 
 		//this.elements.initRoot = initRoot;
@@ -40,8 +40,8 @@ export default class Boarding {
 		this.elements.board.addEventListener("click", () =>{
 			KanbanAPI.getItems(id).forEach(item => {
 				KanbanAPI.insertItem(3, item.content, item.init);
-				const itemdup = new Item(3, item.content, item.init);
-				initRoot.appendChild(itemdup.elements.root);
+				const itemdup = new Item(item.id, item.content, item.init);
+				initRootItems.appendChild(itemdup.elements.root);
 				this.deleteColumn(id);
 			});
 		})
@@ -109,8 +109,13 @@ export default class Boarding {
 
 	deleteColumn(id){
 		KanbanAPI.getItems(id).forEach(item => {
+			//this.elements.items.lastElementChild.removeEventLister("blur", onBlur);
+			//this.elements.items.lastElementChild.id;
+
 			this.elements.items.removeChild(this.elements.items.lastElementChild);
-			//this.elements.items.input.removeEventLister("blur", onBlur);
+			
+			//this.elements.items.lastElementChild.delete();
+			//this.elements.items.removeEventLister("blur", onBlur);
 			KanbanAPI.deleteItem(item.id);
 		})
 		if (this.elements.items.hasChildNodes()){

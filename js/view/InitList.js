@@ -35,7 +35,6 @@ export default class InitList {
 		// renders saved data from json
 		this.renderColumn(id);
 
-		//this.pushToInitiative(3);
 	}
 
 	static createRoot() {
@@ -79,15 +78,7 @@ export default class InitList {
 
 
 
-	pushToInitiative(initColId){
-		// KanbanAPI.getItems(this.elements.root.dataset.id).forEach(item => {
-		// 	KanbanAPI.insertItem(initColId, item.id, item.init);
-		// });
-		// KanbanAPI.getItems(initColId).forEach(item => {
-		// 	//item.renderItem;
-		// });
-		// this.deleteColumn(2)	
-	}
+
 
 	renderItem(data) {
 		const item = new Item(data.id, data.content, data.init);

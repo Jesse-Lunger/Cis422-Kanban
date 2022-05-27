@@ -12,6 +12,7 @@ export default class DropZone {
 			<div class="kanban__dropzone"></div>
 		`).children[0];
 
+		//causes the drop zone to appear if dragging item over
 		dropZone.addEventListener("dragover", e => {
 			e.preventDefault();
 			dropZone.classList.add("kanban__dropzone--active");
@@ -26,15 +27,17 @@ export default class DropZone {
 
 		dropZone.addEventListener("drop", e => {
 			e.preventDefault();
-			dropZone.classList.remove("kanban__dropzone--active");
+			dropZone.classList.remove("kanban__dropzone--active"); //removes drop zone
 
-			const columnElement = dropZone.closest(".kanban__column");
-			const columnId = Number(columnElement.dataset.id);
-			const dropZonesInColumn = Array.from(columnElement.querySelectorAll(".kanban__dropzone"));
-			const droppedIndex = dropZonesInColumn.indexOf(dropZone);
-			const itemId = Number(e.dataTransfer.getData("text/plain"));
-			const droppedItemElement = document.querySelector(`[data-id="${itemId}"]`);
+			const columnElement = dropZone.closest(".kanban__column"); // get column info
+			const columnId = Number(columnElement.dataset.id); //gets column number where dropped
+			const dropZonesInColumn = Array.from(columnElement.querySelectorAll(".kanban__dropzone")); //gets array of dropzones around object
+			const droppedIndex = dropZonesInColumn.indexOf(dropZone); // locates where in dropzone array item dropped
+			const itemId = Number(e.dataTransfer.getData("text/plain")); //gets item id
+
+			const droppedItemElement = document.querySelector(`[data-id="${itemId}"]`); //gets the html root of object
 			const insertAfter = dropZone.parentElement.classList.contains("kanban__item") ? dropZone.parentElement : dropZone;
+			// ^this gets the html root of the item above it, this can either be an item or the drop zone
 
 			if (droppedItemElement.contains(dropZone)) {
 				return;
@@ -43,7 +46,7 @@ export default class DropZone {
 			insertAfter.after(droppedItemElement);
 			KanbanAPI.updateItem(itemId, {
 				columnId,
-				position: droppedIndex
+				position: droppedIndex // updates json
 			});
 		});
 

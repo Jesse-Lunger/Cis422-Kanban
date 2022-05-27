@@ -5,6 +5,7 @@ export default class Item {
 	constructor(id, content, init=0) {
 		const bottomDropZone = DropZone.createDropZone();
 
+
 		this.elements = {};
 		this.elements.root = Item.createRoot();
 		this.elements.input = this.elements.root.querySelector(".kanban__item-input");
@@ -20,6 +21,7 @@ export default class Item {
 
 		this.elements.root.appendChild(bottomDropZone);
 
+
 		const onBlur = () => {
 			const newContent = this.elements.input.textContent.trim();
 			const newInit = this.elements.init.textContent.trim(); //modified
@@ -32,13 +34,13 @@ export default class Item {
 			this.content = newContent;
 			this.init = newInit; //collects init
 
-			KanbanAPI.updateItem(id, {
+			KanbanAPI.updateItem(id, { 
 				content: this.content,
-				init: this.init //updates new init when dragged
-			});
+				init: this.init 
+			});//updates new init when dragged
 		};
 
-
+		this.elements.onBlur = onBlur;
 
 
 		this.elements.input.addEventListener("blur", onBlur); //updates if item.contents on changes
@@ -50,8 +52,9 @@ export default class Item {
 
 			if (check) {
 				KanbanAPI.deleteItem(id);
-				this.elements.input.removeEventListener("blur", onBlur);
-				this.elements.root.parentElement.removeChild(this.elements.root);
+				//this.elements.input.removeEventListener("blur", onBlur);
+				//this.elements.root.parentElement.removeChild(this.elements.root);
+				this.delete()
 			}
 		});
 
@@ -78,17 +81,8 @@ export default class Item {
 			
 		`).children[0];
 	}
-
-	// get deleteSelf(){
-	// 	this.deleting();
-	// }
-
-	// *deleting(){
-	// 	KanbanAPI.deleteItem(this.elements.root.dataset.id);
-	// 	this.elements.input.removeEventListener("blur", onBlur);
-	// 	this.elements.root.parentElement.removeChild(this.elements.root);
-	// }
+	delete(){
+		this.elements.input.removeEventListener("blur", this.elements.onBlur);
+		this.elements.root.parentElement.removeChild(this.elements.root);
+	}
 }
-
-// const j = Item(1, "erer");
-// j.deleting
